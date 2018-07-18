@@ -1,0 +1,15 @@
+
+.App {
+  text-align: center;
+  /*height: 100%;
+  background-image: url("./images/travel2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;*/
+}
+
+.App-title {
+  font-size: 1.5em;
+  color: white;
+}
+
