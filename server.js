@@ -1,5 +1,12 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var passport = require('passport');
+
+
+
+const db = require('./models');
+
+db.sequelize.sync({ force: true });
 
 var app = express();
 
@@ -7,6 +14,23 @@ var PORT = process.env.PORT || 3002;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.post("/api/signup", function(req, res) {
+    console.log(req.body);
+    db.User.create({
+      email: req.body.email,
+      password: req.body.password
+    }).then(function(data) {
+      res.json(200);
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
+      // res.status(422).json(err.errors[0].message);
+    });
+  });
+
 
 app.use(function (req, res, next) {
 
