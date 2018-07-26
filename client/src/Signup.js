@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {withRouter} from 'react-router-dom'
+// import './Signup.css';
 
 class Signup extends Component {
   state = {}
@@ -17,6 +19,8 @@ class Signup extends Component {
       password: this.state.password
     }).then(data => {
       console.log(data)
+      this.props.login();
+      this.props.history.push('/home');
     }).catch(err => {
       console.log(err)
     })
@@ -24,18 +28,19 @@ class Signup extends Component {
 
   render() {
     return (
+      <div id="Signup">
       <form onSubmit={this.onSubmit}>
         <div class="field">
           <label class="label">Name</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Text input" />
+            <input class="input" type="text" placeholder="Your Name" />
           </div>
         </div>
 
        <div class="field">
           <label class="label">Username</label>
           <div class="control has-icons-left has-icons-right">
-            <input name="username" onChange={this.handleChange} class="input is-success" type="text" placeholder="Text input" />
+            <input name="username" onChange={this.handleChange} class="input is-success" type="text" placeholder="User Name" />
               <span class="icon is-small is-left">
                 <i class="fas fa-user"></i>
               </span>
@@ -50,7 +55,7 @@ class Signup extends Component {
           <div class="field">
             <label class="label">Email</label>
             <div class="control has-icons-left has-icons-right">
-              <input name="email" onChange={this.handleChange}  class="input is-danger" type="email" placeholder="Email input" />
+              <input name="email" onChange={this.handleChange}  class="input is-danger" type="email" placeholder="Email" />
                 <span class="icon is-small is-left">
                   <i class="fas fa-envelope"></i>
                 </span>
@@ -62,7 +67,7 @@ class Signup extends Component {
           </div>
 
           <div class="field">
-            <input name="password" onChange={this.handleChange}  class="input is-danger" type="password" placeholder="passsword input" />
+            <input name="password" onChange={this.handleChange}  class="input is-danger" type="password" placeholder="passsword" />
               {/* <label class="label">Gender</label>
               <div class="control">
                 <div class="select">
@@ -74,12 +79,16 @@ class Signup extends Component {
                 </div>
               </div> */}
           </div>
-          <button class="button is-link" type="submit"> Submit</button>          
+          <button class="button is-link" type="submit"> Submit</button> 
+
+          
+          
+                     
    
       </form>
-
+</div>
                 );
               }
             }
             
-export default Signup;
+export default withRouter(Signup);
