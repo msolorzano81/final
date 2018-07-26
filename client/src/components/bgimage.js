@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Pic from '../images/travel1.jpg' ;
+
 /* import Pic2 from '../images/active1.jpg' ;
 import Pic3 from '../images/leisure1.jpg' ;
 import Pic4 from '../images/travel2.jpg' ; */
@@ -18,8 +19,10 @@ class BackgroundImage extends Component {
         const styles = {
             backgroundImage: {
                 backgroundImage: `url(${Pic})`,
-                backgroundSize: "cover",
-                height: "100vh"
+             backgroundSize: "cover",
+                height: "90vh",
+                width: "180vh",
+    
             }
         };
 
