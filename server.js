@@ -1,22 +1,70 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var passport = require('passport');
+//*************************************************************** 
+// Server.js - This file is the initial starting point for the Node/Express server
+//*************************************************************** */
 
-var connection = require('./connection.js')
+// Dependencies
+// ======================================================
+const express = require("express");
+const bodyParser = require("body-parser");
+const passport = require('passport');
+//const mysql = require('mysql');
+const connection = require('./config/connection.js')
+//const sequelize = require ('sequelize');
 
+// Sets up the Express App
+// =======================================================
+const app = express();
+const PORT = process.env.PORT || 3002;
 
-const db = require('./models');
-
-db.sequelize.sync({ force: true });
-
-var app = express();
-
-var PORT = process.env.PORT || 3002;
-
+// Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
+
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
+// Routes
+// =======================================================
+require("./routes/api-routes.js")(app);
+var connection = require('./connection.js')
+
+
+const db = require('./models');
+db.sequelize.sync();
+
+// Starts the server to begin listening
+// =======================================================
+app.listen(PORT, function() {
+  console.log("App listening on PORT: " + PORT);
+  });
+
+
+
+
+//const selectAllSubsQuery = 'SELECT * FROM Subscriptions';
+
+
+
+
+/*app.get('/api/subscriptions/', function(req, res){
+  db.Subscriptions.findAll()
+    .then(dbSubs => {
+      console.log(dbSubs, "is it reading something...")
+     res.json(dbSubs);
+  });
+
+});
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
@@ -57,32 +105,48 @@ app.post("/api/signup", function(req, res) {
     });
   });
 
-app.use(function (req, res, next) {
+// app.use(function (req, res, next) {
 
-    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+//     // Website you wish to allow to connect
+//     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
 
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+//     // Request methods you wish to allow
+//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+//     // Request headers you wish to allow
+//     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
 
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', true);
+//     // Set to true if you need the website to include cookies in the requests sent
+//     // to the API (e.g. in case you use sessions)
+//     res.setHeader('Access-Control-Allow-Credentials', true);
 
-    // Pass to next layer of middleware
-    next();
-});
+//     // Pass to next layer of middleware
+//     next();
+// });
 
 
 
-app.get("/subscriptions", function(req, res) {
+
+/*app.get("/api/subscriptions", function(req, res) {
     connection.query("select * from subscriptions", function(err, stuffFromDb){
-        res.json(stuffFromDb)
+      res.json(stuffFromDb)
     })
-});
+});*/
+
+/*app.get('/api/subscriptions', (req, res) => {
+  connection.query(selectAllSubsQuery, (err, results) => {
+    if(err) {
+      return res.send(err)
+    } else {
+      return console.log('info from backend is being accessed');//res.json(results)
+      
+    }
+  });
+}); */
+
+
+
+
 
 app.listen(PORT, function() {
   console.log("App listening on PORT : " + PORT);

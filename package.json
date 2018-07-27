@@ -1,29 +1,32 @@
 {
-  "name": "nyt-react",
+  "name": "final",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
-  "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"node --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
-    "install": "cd client && yarn install;",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+  "main": "connection.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.5.3",
+    "nodemon": "^1.18.3",
+    "passport": "^0.4.0",
+    "path": "^0.12.7",
+    "sequelize": "^4.38.0"
   },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msolorzano81/final.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^3.5.0",
-    "nodemon": "^1.11.0"
+  "bugs": {
+    "url": "https://github.com/msolorzano81/final/issues"
   },
-  "dependencies": {
-    "axios": "^0.16.2",
-    "body-parser": "^1.17.2",
-    "express": "^4.15.4",
-    "if-env": "^1.0.4",
-    "mongoose": "^5.0.17",
-    "mysql": "^2.16.0"
-  }
+  "homepage": "https://github.com/msolorzano81/final#readme"
 }

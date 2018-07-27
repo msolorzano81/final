@@ -3,20 +3,20 @@
     "username": "root",
     "password": null,
     "database": "treatyoself_DB",
-    "host": "127.0.0.1",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
-    "database": "database_test",
+    "database": "treatyoself_DB",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": null,
-    "database": "database_production",
+    "database": "treatyoself_DB",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }

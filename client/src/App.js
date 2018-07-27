@@ -4,6 +4,11 @@ import { BrowserRouter as Router,Route} from 'react-router-dom';
 import './App.css';
 import Signup from './Signup';
 import Login from './Login';
+import BackgroundImage from './components/bgimage';
+//import Subscriptions from './pages/subscriptions';
+import SubCard from './components/SubCard';
+import NavSignout from './components/NavBar_signout'
+import subscriptions from './pages/subscriptions.js';
 // import BackgroundImage from './components/bgimage';
 // import Subscriptions from './pages/subscriptions';
 // import Signup from './Signup';
@@ -45,8 +50,25 @@ class App extends Component {
           </div>
           )}
           />
-        </div>
-    </Router>
+        />
+
+        <Route exact path="/subscriptions" component={subscriptions}/> 
+
+
+        {/* <Route path="/subscriptions" render={() => (
+          <div className="columns">
+            <div className="column">       
+            1
+            </div>
+            <div className="column">       
+            <SubCard />
+            </div>
+          </div>
+           
+        )}
+        /> */}
+      </div>
+      </Router>
     );
    }   
   }   
