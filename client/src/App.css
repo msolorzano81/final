@@ -13,3 +13,37 @@
   color: white;
 }
 
+#Signup{
+  width: 50%;
+    padding: 12px 20px;
+    
+    display: inline-block;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    margin: 150px 0px 0px 850px;
+   align-content: center;
+    width: 30%;
+    height: 55%;
+    background-color: rgb(212, 220, 116); 
+   
+}  
+#Login {
+  width: 50%;
+    padding: 12px 20px;
+    
+    display: inline-block;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    margin: 150px 0px 0px 850px;
+   align-content: center;
+    width: 30%;
+    height: 35%;
+    background-color: rgb(212, 220, 116);
+}
+
