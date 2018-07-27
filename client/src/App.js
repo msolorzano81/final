@@ -5,7 +5,6 @@ import './App.css';
 import Signup from './Signup';
 import Login from './Login';
 import BackgroundImage from './components/bgimage';
-import Subscriptions from './pages/subscriptions';
 import Navbar from "./components/Navbar";
 //import Subscriptions from './pages/subscriptions';
 import SubCard from './components/SubCard';
