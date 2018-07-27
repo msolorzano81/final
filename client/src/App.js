@@ -6,21 +6,46 @@ import Signup from './Signup';
 import Login from './Login';
 import BackgroundImage from './components/bgimage';
 import Subscriptions from './pages/subscriptions';
+import Navbar from "./components/Navbar";
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-        <Route exact path="/" component={Login}/> 
-        <Route exact path="/signup" component={Signup}/> 
-        <Route path="/home" component={BackgroundImage} />
-          <Route path="/subscriptions" component={Subscriptions} />
-      </div>
-      </Router>
-      
-    );
-  }
-}
+         <div>
+        <Route path="/login" render={()=>(
+          <div>
+            <Login/>
+            <Navbar/>
+            </div> 
+        )} />
+
+        <Route path="/signup" render={()=>(
+          <div>
+            <Signup/>
+            <Navbar/>
+          </div> 
+        )} />
+
+        <Route path="/home" render={()=>(
+          <div>
+            <Navbar/>
+            <BackgroundImage/>
+            </div>
+           
+        )} />
+          <Route path="/subscriptions" render={()=>(
+          <div>
+            <Subscriptions/>
+            <Navbar/>
+            </div>
+           
+        )} />
+       </div> 
+</Router>
+ );
+}   
+}   
+   
 
 export default App;
