@@ -41,7 +41,7 @@ require("./routes/api-routes.js")(app);
 // var connection = require('./connection.js');
 // If no API routes are hit, send the React app
 app.use(function (req, res) {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
 const db = require('./models');
@@ -110,9 +110,6 @@ app.post("/api/signup", function(req, res) {
     });
   });
 
-  if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
-  }
 
 
 // app.use(function (req, res, next) {
