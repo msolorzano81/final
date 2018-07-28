@@ -4,6 +4,8 @@ import { BrowserRouter as Router,Route} from 'react-router-dom';
 import './App.css';
 import Signup from './Signup';
 import Login from './Login';
+
+
 import BackgroundImage from './components/bgimage';
 //import Subscriptions from './pages/subscriptions';
 import SubCard from './components/SubCard';
@@ -14,6 +16,7 @@ import subscriptions from './pages/subscriptions.js';
 // import Signup from './Signup';
 import SubmitImage from './components/subimage';
 import LoginImage from './components/logimage';
+
 // import SubmitImage from './components/subimage';
 
 
@@ -50,7 +53,7 @@ class App extends Component {
           </div>
           )}
           />
-        />
+      
 
         <Route exact path="/subscriptions" component={subscriptions}/> 
 

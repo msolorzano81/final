@@ -16,7 +16,7 @@ class Login extends Component {
     axios.post('/api/login', this.state)
       .then(data => {
         this.props.login();
-        this.props.history.push('/home');
+        this.props.history.push('/Subscriptions');
         console.log("nice you are now logged in!")
       })
       .catch(err => {
