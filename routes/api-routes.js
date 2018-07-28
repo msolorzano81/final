@@ -37,21 +37,39 @@ module.exports = function(app) {
       });
     });
 
-    app.get('/api/create', (req, res) => {
-      console.log("hello from api/all")
-        db.subscriptions.create({
-          name: "Hello3",
-          description: "Found me",
-          link: "www.heythere.com",
-          price: "$33.00",
-          frequency: "weekly",
-          category: "beauty"
+    // app.get('/api/create', (req, res) => {
+    //   console.log("hello from api/all")
+    //     db.subscriptions.create({
+    //       name: "Hello3",
+    //       description: "Found me",
+    //       link: "www.heythere.com",
+    //       price: "$33.00",
+    //       frequency: "weekly",
+    //       category: "beauty"
           
-        }).then((results)=> {
-            console.log(results);
-            res.json(results);
-        })
-    })
+    //     }).then((results)=> {
+    //         console.log(results);
+    //         res.json(results);
+    //     });
+    // });
+
+    // POST 
+
+    app.post('/api/posts', (req, res) =>{
+      console.log("we hit the route!!!!", req.body)
+      db.subscriptions.create({
+        name: "",
+        description: "",
+        link: "",
+        price: "",
+        frequency: "",
+        category: ""
+        
+      }).then((results)=> {
+          console.log(results);
+          res.json(results);
+      });
+  });
 
 }
 

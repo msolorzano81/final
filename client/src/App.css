@@ -47,3 +47,30 @@
     background-color: rgb(212, 220, 116);
 }
 
+.column.no-scroll {
+  margin-left: 1rem;
+  margin-right: 0rem;
+  margin-top: 5rem;
+
+  
+}
+
+.column.boxlist {
+  margin-left: 2.5rem;
+  margin-right: 4rem;
+  margin-top: 5rem;
+  
+}
+
+.boxSearch {
+  background-color: ghostwhite;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.field.addBox {
+  background-color: floralwhite;
+  padding: 10px;
+  border-radius: 5px;
+}
+

@@ -29,6 +29,12 @@ class App extends Component {
     this.setState({loggedIn: true})
   }
 
+  addBox(boxSubmitted) {
+    this.setState(state => ({
+      posts: state.posts.concat([boxSubmitted])
+    }))
+  }
+
   render() {
     return (
       <Router>
