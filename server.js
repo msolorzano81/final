@@ -38,7 +38,10 @@ if (process.env.NODE_ENV === "production") {
 // =======================================================
 require("./routes/api-routes.js")(app);
 // var connection = require('./connection.js');
-
+// If no API routes are hit, send the React app
+app.use(function (req, res) {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
 const db = require('./models');
 db.sequelize.sync();

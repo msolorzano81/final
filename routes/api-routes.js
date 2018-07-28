@@ -23,6 +23,7 @@ module.exports = function(app) {
             console.log(results);
             res.json(results);
         })
+        .catch(e=> res.json(e))
     })
 
 // Get subscription box by category
