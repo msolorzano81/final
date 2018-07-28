@@ -25,7 +25,7 @@ class Subscriptions extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        axios.get('http://localhost:3002/api/posts/category/' + event.target.value)
+        axios.get('/api/posts/category/' + event.target.value)
             .then(subs => {
                 console.log('! from the db', subs)
                 this.setState({
@@ -63,7 +63,7 @@ class Subscriptions extends React.Component {
     handleFormSubmit(event) {
         
         event.preventDefault();
-        axios.post('http://localhost:3002/api/posts/' + event.target.value)
+        axios.post('/api/posts/' + event.target.value)
             .then(subs => {
                 console.log('! from the db', subs)
                 this.setState({
@@ -74,7 +74,7 @@ class Subscriptions extends React.Component {
 
 
   componentDidMount() {
-      axios.get('http://localhost:3002/api/all')
+      axios.get('/api/all')
       .then(subs => {
           console.log('! from the db', subs)
           this.setState({
