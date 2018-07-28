@@ -26,6 +26,12 @@ class App extends Component {
     this.setState({loggedIn: true})
   }
 
+  addBox(boxSubmitted) {
+    this.setState(state => ({
+      posts: state.posts.concat([boxSubmitted])
+    }))
+  }
+
   render() {
     return (
       <Router>
@@ -50,7 +56,7 @@ class App extends Component {
           </div>
           )}
           />
-        />
+        
 
         <Route exact path="/subscriptions" component={subscriptions}/> 
 

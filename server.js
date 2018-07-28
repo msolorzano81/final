@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === "production") {
 // Routes
 // =======================================================
 require("./routes/api-routes.js")(app);
-var connection = require('./connection.js')
+//var connection = require('./connection.js')
 
 
 const db = require('./models');
@@ -148,6 +148,3 @@ app.post("/api/signup", function(req, res) {
 
 
 
-app.listen(PORT, function() {
-  console.log("App listening on PORT : " + PORT);
-});
