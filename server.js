@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === "production") {
 // Routes
 // =======================================================
 require("./routes/api-routes.js")(app);
-//var connection = require('./connection.js')
+// var connection = require('./connection.js');
 
 
 const db = require('./models');
@@ -57,20 +57,24 @@ app.listen(PORT, function() {
 
 
 
-/*app.get('/api/subscriptions/', function(req, res){
-  db.Subscriptions.findAll()
-    .then(dbSubs => {
-      console.log(dbSubs, "is it reading something...")
-     res.json(dbSubs);
-  });
+// app.get('/api/subscriptions/', function(req, res){
+//   db.Subscriptions.findAll()
+//     .then(dbSubs => {
+//       console.log(dbSubs, "is it reading something...")
+//      res.json(dbSubs);
+//   });
 
-});
+// });
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
   }
 
 app.post("/api/signup", function(req, res) {
+  if (!req.body.email || !req.body.password) {
+    return res.send(400)
+  }
+  
     console.log(req.body);
     db.User.create({
       email: req.body.email,
@@ -127,13 +131,14 @@ app.post("/api/signup", function(req, res) {
 
 
 
-/*app.get("/api/subscriptions", function(req, res) {
-    connection.query("select * from subscriptions", function(err, stuffFromDb){
-      res.json(stuffFromDb)
-    })
-});*/
+// app.get("/api/subscriptions", function(req, res) {
+//     connection.query("select * from subscriptions", function(err, stuffFromDb){
+//       res.json(stuffFromDb)
+//     })
+// }); */
 
-/*app.get('/api/subscriptions', (req, res) => {
+/*
+app.get('/api/subscriptions', (req, res) => {
   connection.query(selectAllSubsQuery, (err, results) => {
     if(err) {
       return res.send(err)
@@ -142,9 +147,13 @@ app.post("/api/signup", function(req, res) {
       
     }
   });
-}); */
+});
 
 
 
 
 
+// app.listen(PORT, function() {
+//   console.log("App listening on PORT : " + PORT);
+)}
+*/
