@@ -19,7 +19,7 @@ module.exports = function(app) {
 // Get all subscriptions route
     app.get('/api/all', (req, res) => {
       console.log("hello from api/all")
-        db.Subscriptions.findAll({}).then((results)=> {
+        db.subscriptions.findAll({}).then((results)=> {
             console.log(results);
             res.json(results);
         })
@@ -28,7 +28,7 @@ module.exports = function(app) {
 
 // Get subscription box by category
     app.get("/api/posts/category/:category", function(req, res) {
-      db.Subscriptions.findAll({
+      db.subscriptions.findAll({
         where: {
           category: req.params.category
         }
@@ -40,7 +40,7 @@ module.exports = function(app) {
 
     // app.get('/api/create', (req, res) => {
     //   console.log("hello from api/all")
-    //     db.Subscriptions.create({
+    //     db.subscriptions.create({
     //       name: "Hello3",
     //       description: "Found me",
     //       link: "www.heythere.com",
@@ -58,7 +58,7 @@ module.exports = function(app) {
 
     app.post('/api/posts', (req, res) =>{
       console.log("we hit the route!!!!", req.body)
-      db.Subscriptions.create({
+      db.subscriptions.create({
         name: "",
         description: "",
         link: "",
