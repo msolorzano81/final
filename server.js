@@ -69,9 +69,6 @@ app.listen(PORT, function() {
 
 // });
 
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
-  }
 
 app.post("/api/signup", function(req, res) {
   if (!req.body.email || !req.body.password) {
@@ -111,6 +108,11 @@ app.post("/api/signup", function(req, res) {
       res.status(422).json(err.errors[0].message);
     });
   });
+
+  if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+  }
+
 
 // app.use(function (req, res, next) {
 
